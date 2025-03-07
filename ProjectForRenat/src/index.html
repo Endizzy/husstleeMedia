@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <title>HUSSTLEE MEDIA</title>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <!-- Обычная навигация (будет скрываться на мобильных) -->
+        <nav class="nav__menu">
+            <ul class="nav__item">
+                <li><a href="index.html" class="nav__link">VIDEO</a></li>
+                <li><a href="#" class="nav__link">CLIENT WORK</a></li>
+                <li><a href="#" class="nav__link">PHOTO</a></li>
+                <li><a href="contact.html" class="nav__link">CONTACT</a></li>
+            </ul>
+        </nav>
+
+        <!-- Логотип -->
+        <div class="logo">
+            <img src="../img/logoWithoutBG.png" alt="lol">
+        </div>
+
+        <!-- Бургер-меню (иконка menuIcon.png) -->
+        <div class="empty">
+            <button class="burger-menu" onclick="toggleMenu()"></button>
+        </div>
+
+        <!-- Мобильное меню (изначально скрыто) -->
+<!--        <nav class="mobile-nav">-->
+<!--            <a href="#">VIDEO</a>-->
+<!--            <a href="#">CLIENT WORK</a>-->
+<!--            <a href="#">PHOTO</a>-->
+<!--            <a href="#">CONTACT</a>-->
+<!--        </nav>-->
+        <!-- Полноэкранное мобильное меню -->
+        <nav class="fullscreen-menu">
+            <button class="close-menu" onclick="toggleMenu()"><img src="../img/cross.png" alt="cancel"></button>
+            <a href="#">VIDEO</a>
+            <a href="#">CLIENT WORK</a>
+            <a href="#">PHOTO</a>
+            <a href="#">CONTACT</a>
+        </nav>
+
+    </div>
+</header>
+<section class="main__section">
+    <div class="container">
+        <div class="main__content">
+            <div class="Preview" id="Preview1" onclick=ViewCla()>
+                <img src="../img/cla45s.jpg" alt="CLA 45s" class="image1">
+                <div class="Preview__text">CLA 45s</div>
+            </div>
+            <div class="Preview">
+                <img src="../img/Mclaren750s.png" alt="car" class="image1">
+                <div class="Preview__text">Mclaren 750s</div>
+            </div>
+            <div class="Preview">
+                <img src="../img/Porsche1.png" alt="car" class="image1">
+                <div class="Preview__text">Porsche</div>
+            </div>
+            <div class="Preview"></div>
+            <div class="Preview"></div>
+        </div>
+    </div>
+</section>
+<script src="main.js"></script>
+</body>
+</html>

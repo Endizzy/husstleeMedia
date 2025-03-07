@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&display=swap');
+
+body {
+    background-color: #12141d;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    animation: fadeInBody 0.8s ease-out forwards;
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 4%;
+    box-sizing: border-box;
+}
+
+.nav__menu,
+.logo,
+.empty {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Выравниваем меню слева */
+.nav__menu {
+    justify-content: flex-start;
+}
+
+/* Центрируем логотип */
+.logo {
+    justify-content: center;
+}
+
+/* Пустой блок справа */
+.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    position: relative;
+}
+
+/* Стили для логотипа */
+.logo img {
+    max-height: 200px; /* Вернул нормальный размер */
+    max-width: 100%;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Стили для навигации */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.nav__item {
+    display: flex;
+    gap: 30px;
+}
+
+.nav__link {
+    color: rgba(255, 255, 255);
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 20px;
+    /*transition: color 0.5s;*/
+}
+
+.nav__link:hover {
+    color: red;
+}
+
+h1,h2,h3,h4,h5 {
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 34px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    position: relative;
+    background-color: black; /* Убедитесь, что фон header не прозрачен */
+    padding: 0 4%;
+}
+
+.burger-menu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 40%;
+    width: 60px;
+    height: 60px;
+    background: url('../img/menuIcon.png') center/cover no-repeat;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+/* Полноэкранное меню */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Полная высота экрана */
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.fullscreen-menu.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreen-menu a {
+    color: white;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.fullscreen-menu a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.close-menu {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    background: none;
+    border: none;
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+}
+
+.close-menu img {
+    width: 100%;
+    height: 30px;
+}
+
+/* Отключение скролла при открытом меню */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Медиа-запрос для адаптива */
+@media (max-width: 932px) {
+    .nav__menu {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+
+.main__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Всегда 2 колонки */
+    gap: 10px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto; /* Центрируем */
+}
+
+.Preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out; /* Плавный переход */
+}
+
+.Preview:hover img {
+    filter: brightness(30%); /* Уменьшаем яркость на 50% */
+    cursor: pointer;
+}
+
+.Preview {
+    width: 100%;
+    aspect-ratio: 16/9; /* Соотношение сторон */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222; /* Фон на случай загрузки */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.Preview.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/*.Preview .Preview__text {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%); !* Центрируем текст *!*/
+/*    color: white;*/
+/*    font-size: 24px;*/
+/*    font-family: "Bebas Neue", sans-serif;*/
+/*    text-align: center;*/
+/*    opacity: 0; !* По умолчанию скрываем текст *!*/
+/*    transition: opacity 0.3s ease-in-out;*/
+/*}*/
+
+/*!* Показываем текст при наведении *!*/
+/*.Preview:hover .Preview__text {*/
+/*    opacity: 1;*/
+/*}*/
+
+/* Текст поверх изображения */
+.Preview .Preview__text {
+    position: absolute;
+    width: 200px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    opacity: 0; /* По умолчанию скрываем текст */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Показываем текст при наведении */
+.Preview:hover .Preview__text {
+    opacity: 1;
+    cursor: pointer;
+}
+
+@media (max-width: 932px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 932px) {
+    .main__content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* СТИЛИ ДЛЯ СТРАНИЦЫ CONTACT */
+.form-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column; /* Делаем все в столбик */
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container label {
+    color: white;
+}
+
+.email__container {
+    width: 600px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+textarea {
+    resize: none;
+    height: 150px;
+}
+.submit-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100px;
+    align-self: flex-start;
+}
+.submit-btn:hover {
+    background: #ddd;
+}
+
+/* СТИЛИ VIDEO */
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    min-height: 100vh;
+    background-color: #12141d;
+    padding: 20px;
+}
+.video-js {
+    width: 100%;
+    max-width: 1600px;
+    height: auto;
+}
+.video-js .vjs-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Заполняет всю область плеера */
+}
+
+.welcome__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome__text-header {
+    text-align: center;
+    color: white;
+}
