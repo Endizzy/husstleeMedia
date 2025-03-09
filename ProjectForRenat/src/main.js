@@ -15,6 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function ViewCla() {
     window.location.href = "cla45s.html";
 }
+function ViewMcLauren() {
+    window.location.href = "mclaren750s.html";
+}
+function ViewPorsche() {
+    window.location.href = "Porsche.html";
+}
 
 
 
