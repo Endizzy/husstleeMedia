@@ -11,6 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     previews.forEach(preview => observer.observe(preview));
 });
+// window.addEventListener("load", function() {
+//     document.querySelectorAll("img").forEach(img => {
+//         new Image().src = img.src;
+//     });
+// });
+
 
 function ViewCla() {
     window.location.href = "cla45s.html";
@@ -21,8 +27,21 @@ function ViewMcLauren() {
 function ViewPorsche() {
     window.location.href = "Porsche.html";
 }
-
-
+function ViewBentley() {
+    window.location.href = "bentley.html";
+}
+function ViewClaPhoto() {
+    window.location.href = "cla45sPhoto.html";
+}
+function ViewMclaurenPhoto() {
+    window.location.href = "mclaurenPhoto.html";
+}
+function ViewPorschePhoto() {
+    window.location.href = "porschePhoto.html";
+}
+function ViewBentleyPhoto() {
+    window.location.href = "bentleyPhoto.html";
+}
 
 function toggleMenu() {
     const menu = document.querySelector('.fullscreen-menu');
@@ -31,6 +50,7 @@ function toggleMenu() {
     menu.classList.toggle('open');
     body.classList.toggle('no-scroll'); // Отключаем/включаем скролл
 }
+
 
 // Закрываем меню при клике вне его
 document.addEventListener('click', function (event) {
@@ -52,3 +72,4 @@ document.addEventListener('click', function (event) {
         }
     })
 });
+

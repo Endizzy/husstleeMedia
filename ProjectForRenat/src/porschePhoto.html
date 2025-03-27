@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">
+    <title>Porsche | HUSSTLEE MEDIA</title>
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <nav class="nav__menu">
+            <ul class="nav__item">
+                <li><a href="index.html" class="nav__link">VIDEO</a></li>
+                <li><a href="photo.html" class="nav__link">PHOTO</a></li>
+                <li><a href="aboutus.html" class="nav__link">ABOUT US</a></li>
+                <li><a href="contact.html" class="nav__link">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            <img src="../img/logoWithoutBG.png" alt="HUSSTLEE">
+        </div>
+        <div class="empty">
+            <button class="burger-menu" onclick="toggleMenu()"></button>
+        </div>
+        <nav class="fullscreen-menu">
+            <button class="close-menu" onclick="toggleMenu()"><img src="../img/cross.png" alt="cancel"></button>
+            <a href="index.html">VIDEO</a>
+            <a href="photo.html">PHOTO</a>
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </div>
+</header>
+<section class="welcome__content">
+    <div class="welcome__text">
+        <h1 class="welcome__text-header">Porsche PHOTO</h1>
+    </div>
+</section>
+<section class="photo__section">
+    <div class="gallery-container">
+        <button class="arrow prev">&#10094;</button>
+        <img class="main-image" src="../img/porsche-1.webp" alt="Фото">
+        <button class="arrow next">&#10095;</button>
+    </div>
+    <div class="thumbnails"></div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="main.js"></script>
+<script>
+    $(document).ready(function () {
+        let images = [
+            "../img/porsche-1.webp",
+            "../img/porsche-2.webp",
+            "../img/porsche-3.webp"
+        ];
+
+        let currentIndex = 0;
+        let $mainImage = $(".main-image");
+        let $thumbnailsContainer = $(".thumbnails");
+
+        function updateImage(index) {
+            $mainImage.fadeOut(200, function () {
+                $mainImage.attr("src", images[index]).fadeIn(200);
+            });
+
+            $(".thumbnail").removeClass("active");
+            $(".thumbnail").eq(index).addClass("active");
+        }
+
+        // Создаем миниатюры
+        images.forEach((imgSrc, index) => {
+            let $thumbnail = $("<img>")
+                .attr("src", imgSrc)
+                .addClass("thumbnail")
+                .click(function () {
+                    currentIndex = index;
+                    updateImage(currentIndex);
+                });
+
+            if (index === 0) $thumbnail.addClass("active"); // Первая миниатюра активная
+
+            $thumbnailsContainer.append($thumbnail);
+        });
+
+        $(".next").click(function () {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage(currentIndex);
+        });
+
+        $(".prev").click(function () {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage(currentIndex);
+        });
+    });
+</script>
+</body>
+</html>

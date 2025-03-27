@@ -1,21 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Bebas+Neue&display=swap');
 
 body {
-    /*background-color: #12141d;*/
-    background-image: url("../testBgFolder/testBg (1).jpg");
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-
-    background-color: rgba(0, 0, 0, 0.8);
-    background-blend-mode: darken;
-
+    background-color: black;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    animation: fadeInBody 0.6s ease-out forwards;
+    animation: fadeInBody 0.4s ease-out forwards;
+    will-change: opacity;
 }
 
 @keyframes fadeInBody {
@@ -96,7 +87,7 @@ ul {
 }
 
 .nav__link:hover {
-    color: red;
+    color: grey;
 }
 
 h1,h2,h3,h4,h5 {
@@ -107,6 +98,11 @@ h1,h2,h3,h4,h5 {
     font-size: 34px;
 }
 
+p {
+    font-family: "Bebas Neue", sans-serif;
+    text-decoration: none;
+}
+
 a {
     font-family: "Bebas Neue", sans-serif;
     text-decoration: none;
@@ -115,12 +111,14 @@ a {
 .header {
     position: relative;
     background-color: black; /* Убедитесь, что фон header не прозрачен */
-    /*padding: 0 4%;*/
 }
 
 footer {
     position: relative;
     background-color: black; /* Убедитесь, что фон header не прозрачен */
+}
+.welcome__content {
+    text-align: center;
 }
 
 footer h1 {
@@ -131,8 +129,8 @@ footer h1 {
     display: none;
     position: absolute;
     top: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: url('../img/menuIcon.png') center/cover no-repeat;
     border: none;
     cursor: pointer;
@@ -287,32 +285,37 @@ body.no-scroll {
 }
 
 /* СТИЛИ ДЛЯ СТРАНИЦЫ CONTACT */
+/* Основные стили формы */
 .form-container {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-.form-container label {
+.email__container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+label {
     margin-bottom: 5px;
     text-transform: uppercase;
     color: white;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 1px;
-}
-
-.email__container {
-    width: 600px;
-}
-.form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
 }
 
 input, textarea {
@@ -323,12 +326,11 @@ input, textarea {
     background: #333;
     color: #fff;
     font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     font-size: 16px;
     letter-spacing: 2px;
     outline: none;
 }
+
 textarea {
     resize: none;
     height: 150px;
@@ -336,7 +338,8 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    letter-spacing: 8px;
+    letter-spacing: 5px;
+    font-size: 14px;
 }
 
 .submit-btn {
@@ -351,6 +354,7 @@ textarea::placeholder {
     transition: all 0.3s ease-in-out;
     font-weight: 500;
     text-transform: uppercase;
+    /*width: 100%;*/
 }
 
 .submit-btn:hover {
@@ -360,6 +364,53 @@ textarea::placeholder {
 
 .submit-btn:active {
     transform: scale(0.96);
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .email__container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    label {
+        font-size: 16px;
+    }
+
+    input, textarea {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    input::placeholder, textarea::placeholder {
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        margin-top: 30px;
+        padding: 10px;
+    }
+
+    .email__container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input, textarea {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
 }
 
 
@@ -380,11 +431,6 @@ textarea::placeholder {
     object-fit: cover;
 }
 
-.welcome__text {
-    text-align: center;
-    color: white;
-}
-
 /*TODO ВИДЕО С ПОРШЕМ!!!! */
 .container-story {
     display: flex;
@@ -396,3 +442,240 @@ textarea::placeholder {
     padding: 20px 4%;
     box-sizing: border-box;
 }
+
+/* ФОТО СЕКЦИЯ МАШИН!*/
+/* Основные стили галереи */
+.photo__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 4%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 1600px;
+    height: 700px;
+    object-fit: contain; /* Убедимся, что вся картинка видна */
+    object-position: center; /* Центрируем картинку */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Миниатюры */
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.thumbnail.active {
+    border: 3px solid #007bff;
+    opacity: 1;
+}
+
+/* Lightbox (увеличенное фото) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .arrow {
+        font-size: 24px;
+        padding: 8px 12px;
+    }
+
+    .thumbnail {
+        width: 60px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-container {
+        padding: 10px;
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .arrow {
+        font-size: 20px;
+        padding: 6px 10px;
+    }
+
+    .thumbnails {
+        gap: 5px;
+    }
+
+    .thumbnail {
+        width: 50px;
+        height: 38px;
+    }
+}
+
+/* ABOUT US  */
+
+/* Стили для секции ABOUT US */
+
+.welcome__content-aboutus {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 20%, rgba(25, 25, 25, 1) 80%);
+    padding: 80px 10%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.welcome__text {
+    margin: 0 auto;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовок "ABOUT US" */
+.about__text-header {
+    font-size: 48px;
+    color: white;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Основной текст */
+.about__text {
+    font-size: 22px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+}
+
+/* Разделение пунктов */
+.about__text span {
+    display: block;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.1);
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Подсветка при наведении */
+.about__text span:hover {
+    color: #f39c12;
+    text-shadow: 0px 0px 15px rgba(255, 165, 0, 0.8);
+    cursor: default;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .about__text-header {
+        font-size: 36px;
+    }
+
+    .about__text {
+        font-size: 18px;
+    }
+
+    .about__text span {
+        font-size: 20px;
+    }
+}
+
