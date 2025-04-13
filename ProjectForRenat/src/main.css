@@ -48,7 +48,7 @@ body {
 .empty {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     width: 50px;
     position: relative;
 }
@@ -128,13 +128,15 @@ footer h1 {
 .burger-menu {
     display: none;
     position: absolute;
-    top: 50%;
-    width: 50px;
-    height: 50px;
+    /*top: 50%;*/
+    width: 30px;
+    height: 30px;
+    /*right: 60px; !* сдвиг от правого края *!*/
     background: url('../img/menuIcon.png') center/cover no-repeat;
     border: none;
     cursor: pointer;
     transform: translateY(-50%);
+    animation: fadeIn 1s ease-out forwards;
 }
 
 /* Полноэкранное меню */
@@ -174,17 +176,17 @@ footer h1 {
 
 .close-menu {
     position: absolute;
-    top: 40px;
-    right: 100px;
+    top: 50px;
+    right: 50px;
     background: none;
     border: none;
-    font-size: 60px;
+    /*!*font-size: 60px;*! NEWNEW*/
     color: white;
     cursor: pointer;
 }
 
 .close-menu img {
-    width: 100%;
+    /*!*width: 100%;*! NEWNEW*/
     height: 30px;
 }
 
@@ -205,8 +207,17 @@ body.no-scroll {
 
 
 /* Медиа-запрос для адаптива */
+/*@media (max-width: 932px) {*/
+/*    .nav__menu {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .burger-menu {*/
+/*        display: block;*/
+/*    }*/
+/*}*/
 @media (max-width: 932px) {
-    .nav__menu {
+    .nav__item {
         display: none;
     }
 
@@ -240,7 +251,7 @@ body.no-scroll {
 .Preview {
     width: 100%;
     aspect-ratio: 16/9;
-    border-radius: 10px;
+    border-radius: 4px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -418,8 +429,6 @@ textarea::placeholder {
 
 /* СТИЛИ VIDEO */
 
-.video-section {
-}
 .video-js {
     width: 100%;
     max-width: 1600px;
@@ -603,7 +612,10 @@ textarea::placeholder {
     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
     animation: fadeIn 1.2s ease-in-out;
 }
-
+.welcome__text-header {
+    margin-bottom: 20px;
+    margin-top: 0;
+}
 .welcome__text {
     margin: 0 auto;
 }
@@ -679,3 +691,84 @@ textarea::placeholder {
     }
 }
 
+/*Вилео YOUTUBE*/
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-container {
+    width: 600px;
+    height: 315px;
+    margin-bottom: 100px;
+}
+
+/*ALSO LIKE*/
+.content-alsolike {
+    display: flex;
+    gap: 20px;
+    margin: auto;
+}
+.alsolike-container {
+    display: flex;
+    justify-content: center;
+    /*gap: 40px; !* Расстояние между картинками *!*/
+    flex-wrap: wrap; /* чтобы при маленьком экране переносились */
+    margin: auto;
+}
+
+.Preview-alsolike {
+    width: 700px;
+    height: 400px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.Preview-alsolike img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.Preview-alsolike:hover {
+    transform: scale(1.02);
+}
+
+.Preview__text-alsolike {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-family: "Bebas Neue", sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    /*padding: 10px 0;*/
+}
+
+@media (max-width: 1450px) {
+    .Preview-alsolike {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+@media (max-width: 932px) {
+    .content-alsolike {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Preview-alsolike {
+        width: 100%;
+        max-width: 600px;
+    }
+}

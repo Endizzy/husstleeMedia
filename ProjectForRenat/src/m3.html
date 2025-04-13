@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">
-    <title>Porsche Video | HUSSTLEE MEDIA</title>
+    <title>M3 Video | HUSSTLEE MEDIA</title>
 </head>
 <body>
 <header class="header">
@@ -20,7 +20,7 @@
             </ul>
         </nav>
         <div class="logo">
-            <img src="../img/logoWithoutBG.png" alt="HUSSLEE">
+            <img src="../img/logoWithoutBG.png" alt="HUSSTLEE">
         </div>
         <div class="empty">
             <button class="burger-menu" onclick="toggleMenu()"></button>
@@ -36,16 +36,11 @@
 </header>
 <section class="welcome__content">
     <div class="welcome__text">
-        <h1 class="welcome__text-header">PORSCHE</h1>
+        <h1 class="welcome__text-header">M3</h1>
     </div>
 </section>
 <section class="video-section">
-    <div class="container-story">
-        <video id="cla45s-video" class="video-js vjs-default-skin" controls preload="auto" poster="../img/Porsche1.webp" data-setup='{"fluid": true}'>
-            <source src="../video/PorscheVideo.webm" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+    <div id="player-container"></div>
 </section>
 <section class="welcome__content">
     <div class="welcome__text">
@@ -55,25 +50,36 @@
 <section class="alsolike">
     <div class="container alsolike-container">
         <div class="content-alsolike">
-            <div class="Preview-alsolike" onclick=ViewMcLauren()>
-                <img src="../img/MclarenPreview.webp" alt="mclaren" class="image1">
-                <div class="Preview__text-alsolike">Mclaren 750s</div>
-            </div>
             <div class="Preview-alsolike" onclick="ViewCla()">
                 <img src="../img/MersPreview.webp" alt="CLA 45s" class="image1">
                 <div class="Preview__text-alsolike">Mercedes</div>
             </div>
+            <div class="Preview-alsolike" onclick=ViewM5()>
+                <img src="../img/m5Preview.webp" alt="thisNight" class="image1">
+                <div class="Preview__text-alsolike">M5</div>
+            </div>
         </div>
     </div>
 </section>
-<script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const player = videojs('cla45s-video');
-        player.ready(function () {
-            console.log("Video.js player is ready");
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player-container', {
+            height: '315',
+            width: '600',
+            videoId: 'v67Z3GzsKf8',
+            playerVars: {
+                controls: 1,
+                modestbranding: 1,
+                rel: 0,
+            }
         });
-    });
+    }
+
+    // Динамически загружаем YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
 </script>
 <script src="main.js"></script>
 </body>

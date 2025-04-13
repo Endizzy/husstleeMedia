@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet">
-    <title>McLaren750s Video | HUSSTLEE MEDIA</title>
+    <title>MCLAREN | HUSSTLEE MEDIA</title>
 </head>
 <body>
 <header class="header">
@@ -36,26 +36,50 @@
 </header>
 <section class="welcome__content">
     <div class="welcome__text">
-        <h1 class="welcome__text-header">MCLAREN 750s</h1>
+        <h1 class="welcome__text-header">MCLAREN</h1>
     </div>
 </section>
 <section class="video-section">
-    <div class="container">
-        <video id="cla45s-video" class="video-js vjs-default-skin" controls preload="auto" poster="../img/Mclaren750s.webp" data-setup='{"fluid": true}'>
-            <source src="../video/mclaren750sVideo.mov" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div id="player-container"></div>
+</section>
+<section class="welcome__content">
+    <div class="welcome__text">
+        <h1 class="welcome__text-header">YOU MAY ALSO LIKE</h1>
     </div>
 </section>
-
-<script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
+<section class="alsolike">
+    <div class="container alsolike-container">
+        <div class="content-alsolike">
+            <div class="Preview-alsolike" onclick=ViewM3()>
+                <img src="../img/m3Preview.webp" alt="m3" class="image1">
+                <div class="Preview__text-alsolike">M3</div>
+            </div>
+            <div class="Preview-alsolike" onclick=ViewBentley()>
+                <img src="../img/BentleyPreview.webp" alt="bentley" class="image1">
+                <div class="Preview__text-alsolike">Bentley</div>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const player = videojs('cla45s-video');
-        player.ready(function () {
-            console.log("Video.js player is ready");
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player-container', {
+            height: '315',
+            width: '600',
+            videoId: 'kOAzditOFvY',
+            playerVars: {
+                controls: 1,
+                modestbranding: 1,
+                rel: 0,
+            }
         });
-    });
+    }
+
+    // Динамически загружаем YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
 </script>
 <script src="main.js"></script>
 </body>

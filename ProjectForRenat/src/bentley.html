@@ -40,14 +40,47 @@
     </div>
 </section>
 <section class="video-section">
-    <div class="container">
-        <video id="cla45s-video" class="video-js vjs-default-skin" controls preload="auto" poster="../img/cla45s.webp" data-setup='{"fluid": true}'>
-            <source src="../video/cla45sVideo.webm" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <div id="player-container"></div>
+</section>
+<section class="welcome__content">
+    <div class="welcome__text">
+        <h1 class="welcome__text-header">YOU MAY ALSO LIKE</h1>
     </div>
 </section>
+<section class="alsolike">
+    <div class="container alsolike-container">
+        <div class="content-alsolike">
+            <div class="Preview-alsolike" onclick=ViewM3()>
+                <img src="../img/m3Preview.webp" alt="m3" class="image1">
+                <div class="Preview__text-alsolike">M3</div>
+            </div>
+            <div class="Preview-alsolike" onclick=ViewM5()>
+                <img src="../img/m5Preview.webp" alt="thisNight" class="image1">
+                <div class="Preview__text-alsolike">M5</div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player-container', {
+            height: '315',
+            width: '600',
+            videoId: 'Da8dPcm37KA',
+            playerVars: {
+                controls: 1,
+                modestbranding: 1,
+                rel: 0,
+            }
+        });
+    }
 
+    // Динамически загружаем YouTube API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+</script>
 <script src="https://vjs.zencdn.net/8.3.0/video.min.js"></script>
 <script src="main.js"></script>
 </body>

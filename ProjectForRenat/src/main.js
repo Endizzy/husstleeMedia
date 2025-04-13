@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { threshold: 0.2 });
 
-    previews.forEach(preview => observer.observe(preview));
+    previews.forEach((preview) => observer.observe(preview));
 });
 // window.addEventListener("load", function() {
 //     document.querySelectorAll("img").forEach(img => {
@@ -30,8 +30,17 @@ function ViewPorsche() {
 function ViewBentley() {
     window.location.href = "bentley.html";
 }
+function ViewM3() {
+    window.location.href = "m3.html";
+}
+function ViewM5() {
+    window.location.href = "m5.html";
+}
 function ViewClaPhoto() {
     window.location.href = "cla45sPhoto.html";
+}
+function ViewAdrenalineRush() {
+    window.location.href = "adrenalinerush.html";
 }
 function ViewMclaurenPhoto() {
     window.location.href = "mclaurenPhoto.html";
@@ -72,4 +81,5 @@ document.addEventListener('click', function (event) {
         }
     })
 });
+
 
